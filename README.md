@@ -98,7 +98,7 @@ In the analysis, the impact of the composition of the control data is of interes
 
 
 ## R Functions
-The folder *functions* contains all R functions necessary to reproduce the results in the thesis and supplementary material:
+The folder *functions* contains all R functions necessary to reproduce the results of **Setting 3** in the thesis and supplementary material. This means that patients get recruited from all three subgroups X, Y and Z. The three functions for that are the following:
 
 * determineDataset.R: the function for generating the data set includes the assignment to the three different subgroups X, Y and Z, the randomization to the three arms T1, T2 and C, the splitting of the data sets into all data, all control data and restricted and the adjusted and unadjusted analyses.
 
