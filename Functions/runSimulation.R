@@ -71,15 +71,11 @@ runSimulation <- function(t, # number of time periods
                            "Full Output" = full)
   
  # only keep the combinations of the three control means that are of interest
-  # grid1_mat <- grid1_mat %>%
-  #   filter((`Mean Control X` == 0 & `Mean Control Y` == 0 & `Mean Control Z` == 0) |
-  #            (`Mean Control X` == -0.5 & `Mean Control Y` == 0.5 & `Mean Control Z` == 0) |
-  #            (`Mean Control X` == -0.5 & `Mean Control Y` == 0 & `Mean Control Z` == 0.5))
+   grid1_mat <- grid1_mat %>%
+     filter((`Mean Control X` == 0 & `Mean Control Y` == 0 & `Mean Control Z` == 0) |
+              (`Mean Control X` == -0.5 & `Mean Control Y` == 0.5 & `Mean Control Z` == 0) |
+              (`Mean Control X` == -0.5 & `Mean Control Y` == 0 & `Mean Control Z` == 0.5))
   
-  # only keep combinations of treatment effects in groups which are of interest
-  grid1_mat <- grid1_mat %>%
-    filter((`Mean Control X` == 0.5 & `Mean Control Y` == 0.5)|
-             (`Mean Control X` == 1 & `Mean Control Y` == 0))
   
   # only keep combinations of randomization ratios in groups which are of interest
   grid1_mat <- grid1_mat %>%
@@ -88,30 +84,7 @@ runSimulation <- function(t, # number of time periods
              !(`Blocksize XY` == 3 & `Alloc Prob Rand XY` == "c(0.5, 0.5)") &   
              !(`Blocksize Z` == 4 & `Alloc Prob Rand Z` == "c(0.333333333333333, 0.333333333333333, 0.333333333333333)") &
              !(`Blocksize Z` == 3 & `Alloc Prob Rand Z` == "c(0.25, 0.25, 0.25, 0.25)"))
-  
-  # grid1_mat <- grid1_mat %>%
-  #   dplyr::filter((`Mean Control X` == 0 & `Mean Control Y` == 0) |
-  #                   (`Mean Control X` == 0.1 & `Mean Control Y` == 0) |
-  #                   (`Mean Control X` == 0.2 & `Mean Control Y` == 0) |
-  #                   (`Mean Control X` == 0.3 & `Mean Control Y` == 0) |
-  #                   (`Mean Control X` == 0.4 & `Mean Control Y` == 0) |
-  #                   (`Mean Control X` == 0.5 & `Mean Control Y` == 0) |
-  #                   (`Mean Control X` == 0.6 & `Mean Control Y` == 0) |
-  #                   (`Mean Control X` == 0.7 & `Mean Control Y` == 0) |
-  #                   (`Mean Control X` == 0.8 & `Mean Control Y` == 0) |
-  #                   (`Mean Control X` == 0.9 & `Mean Control Y` == 0) |
-  #                   (`Mean Control X` == 1 & `Mean Control Y` == 0) |
-  #                   (`Mean Control X` == 1 & `Mean Control Y` == 1) |
-  #                   (`Mean Control X` == 0 & `Mean Control Y` == 0.1) |
-  #                   (`Mean Control X` == 0 & `Mean Control Y` == 0.2) |
-  #                   (`Mean Control X` == 0 & `Mean Control Y` == 0.3) |
-  #                   (`Mean Control X` == 0 & `Mean Control Y` == 0.4) |
-  #                   (`Mean Control X` == 0 & `Mean Control Y` == 0.5) |
-  #                   (`Mean Control X` == 0 & `Mean Control Y` == 0.6) |
-  #                   (`Mean Control X` == 0 & `Mean Control Y` == 0.7) |
-  #                   (`Mean Control X` == 0 & `Mean Control Y` == 0.8) |
-  #                   (`Mean Control X` == 0 & `Mean Control Y` == 0.9) |
-  #                   (`Mean Control X` == 0 & `Mean Control Y` == 1))
+
 
   # only keep the unqiue combinations
   grid1_mat <- unique(grid1_mat)
@@ -160,12 +133,10 @@ runSimulation <- function(t, # number of time periods
 
 }
 
-###########################################################
+#####################################################################################################################
 # Example to call the simulation for the following setting:
-# for an equal prevalence to the groups, four different sample
-# sizes, different treatment effects for T1 and T2, 5000
-# iterations, block and complete randomization and the three
-# different randomization strategies
+# for an equal prevalence to the groups, four different sample sizes, different treatment effects for T1 and T2, 5000
+# iterations, block and complete randomization and the three different randomization strategies
 
 data <- runSimulation(t = 1,
                       n = c(10, 25, 50, 100),
