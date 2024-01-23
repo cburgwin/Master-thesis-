@@ -10,10 +10,12 @@ This thesis aims to enhance the methodology for optimally utilizing different pa
 
 ## Simulation Setup
 
-For the simulation study a multi-arm trial with two experimental treatment arms that enter the trial at the beginning of the trial and a shared control arm is considered (see Figure 4.1). The recruitment of the control arm and the two treatment arms start at the beginning of the trial and patients are recruited during the whole observation period. The considered multi-arm trial allows the selective exclusion of treatment arms. Since a trial with three arms is considered, this results in three different patient subgroups X, Y and Z, as stated in Table 4.1 and visualized in Figure A.1,:
+For the simulation study a multi-arm trial with two experimental treatment arms that enter the trial at the beginning of the trial and a shared control arm is considered (see Figure). The recruitment of the control arm and the two treatment arms start at the beginning of the trial and patients are recruited during the whole observation period. The considered multi-arm trial allows the selective exclusion of treatment arms. Since a trial with three arms is considered, this results in three different patient subgroups X, Y and Z:
 * subgroup X: patients eligible to only treatment 1,
 * subgroup Y: patients eligible to only treatment 2,
 * subgroup Z: patients eligible to both treatments.
+
+![ ](./Pictures/StudyDesign.png)
 
 In this thesis, the distribution of patients in the three subgroups X, Y and Z is referred to with the word prevalence. For the distribution to the subgroups, a random prevalence distribution as well as a deterministic prevalence distribution was tested (see 5.2 for explanations). It was distinguished between three settings
 for the prevalence to the subgroups in which the design is varied according to the objectives of the simulation study:
