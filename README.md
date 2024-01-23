@@ -10,16 +10,20 @@ This thesis aims to enhance the methodology for optimally utilizing different pa
 
 ## Simulation Setup
 
-For the simulation study a multi-arm trial with two experimental treatment arms that enter the trial at the beginning of the trial and a shared control arm is considered (see Figure). The recruitment of the control arm and the two treatment arms start at the beginning of the trial and patients are recruited during the whole observation period. The considered multi-arm trial allows the selective exclusion of treatment arms. Since a trial with three arms is considered, this results in three different patient subgroups X, Y and Z:
+For the simulation study a multi-arm trial with two experimental treatment arms that enter the trial at the beginning of the trial and a shared control arm is considered (see Figure).
+
+![ ](./Figures/StudyDesign.png)
+
+The recruitment of the control arm and the two treatment arms start at the beginning of the trial and patients are recruited during the whole observation period. The considered multi-arm trial allows the selective exclusion of treatment arms. Since a trial with three arms is considered, this results in three different patient subgroups X, Y and Z:
 * subgroup X: patients eligible to only treatment 1,
 * subgroup Y: patients eligible to only treatment 2,
 * subgroup Z: patients eligible to both treatments.
 
-![ ](./Pictures/StudyDesign.png)
+![ ](./Figures/SubgroupZ.png)
 
-In this thesis, the distribution of patients in the three subgroups X, Y and Z is referred to with the word prevalence. For the distribution to the subgroups, a random prevalence distribution as well as a deterministic prevalence distribution was tested (see 5.2 for explanations). It was distinguished between three settings
+In this thesis, the distribution of patients in the three subgroups X, Y and Z is referred to with the word prevalence. For the distribution to the subgroups, a random prevalence distribution as well as a deterministic prevalence distribution was tested. It was distinguished between three settings
 for the prevalence to the subgroups in which the design is varied according to the objectives of the simulation study:
-* **Setting 1**: a prevalence of 0:0:1 to the subgroups X, Y and Z is considered. It illustrates the extreme case where all patients are in subgroup Z. As subgroup Z represents the subgroup in which patients can get randomized to all three arms, this setting is equivalent to a study design that does not allow for selective exclusion of treatment arms, i.e. the setting does not consider different patient populations. The setting corresponds to a traditional multi-arm design (see Figure 4.2).
+* **Setting 1**: a prevalence of 0:0:1 to the subgroups X, Y and Z is considered. It illustrates the extreme case where all patients are in subgroup Z. As subgroup Z represents the subgroup in which patients can get randomized to all three arms, this setting is equivalent to a study design that does not allow for selective exclusion of treatment arms, i.e. the setting does not consider different patient populations. The setting corresponds to a traditional multi-arm design (see Figure above).
 * **Setting 2**: a prevalence of 0.5:0.5:0 to the subgroups X, Y, Z is regarded. It illustrates the second extreme case where patients get recruited from subgroups X and Y. This setting corresponds to two completely independent substudies.
 * **Setting 3**: patients get recruited from all three subgroups X, Y and Z. For that different prevalence to the three subgroups are considered:
   * an equal prevalence of $\frac{1}{3}:\frac{1}{3}:\frac{1}{3}$ to the subgroups X:Y:Z,
@@ -27,11 +31,11 @@ for the prevalence to the subgroups in which the design is varied according to t
   * a high prevalence to subgroups X and Y with $\frac{2}{5}:\frac{2}{5}:\frac{1}{5}$ to the subgroups X:Y:Z,
   * a low prevalence to subgroups X and Y with $\frac{1}{10}:\frac{1}{10}:\frac{4}{5}$ to the subgroups X:Y:Z.
 
-Figure 4.2 stresses the fact that for setting 1, where all patients are recruited from subgroup Z, there is no difference between a trial with two substudies and a traditional multi-arm design. For the remainder of this thesis the following abbreviations will be used to refer to the three treatment arms: T1 for treatment 1, T2 for treatment 2 and C for control. For the three prevalence settings, scenarios with different randomization strategies to the three arms were considered (see
-Table below and Figure 4.3):
-* **R-I**: for subgroups X and Y the ratio is 2:1 for T1 vs. C and T2 vs. C and for subgroup Z the ratio is 1:1:1 for T1 vs. T2 vs. C (see Figure 4.3 A)).
-* **R-II**: for subgroups X and Y a ratio of 1:1 within the substudies for T1 vs.C and T2 vs. C is assumed while for subgroup Z a ratio of 1:1:2 for T1 vs.T2 vs. C (see Figure 4.3 B)).
-* **R-III**: an equal ratio within each subgroup is assumed, meaning that forsubgroup Z the ratio is 1:1:1 for T1 vs. T2 vs. C and for subgroups X and Y the ratio is 1:1 for T1 vs. C and T2 vs. C (see Figure 4.3 C)).
+For the remainder of this thesis the following abbreviations will be used to refer to the three treatment arms: T1 for treatment 1, T2 for treatment 2 and C for control. For the three prevalence settings, scenarios with different randomization strategies to the three arms were considered (see
+Table below):
+* **R-I**: for subgroups X and Y the ratio is 2:1 for T1 vs. C and T2 vs. C and for subgroup Z the ratio is 1:1:1 for T1 vs. T2 vs. C.
+* **R-II**: for subgroups X and Y a ratio of 1:1 within the substudies for T1 vs.C and T2 vs. C is assumed while for subgroup Z a ratio of 1:1:2 for T1 vs.T2 vs. C.
+* **R-III**: an equal ratio within each subgroup is assumed, meaning that forsubgroup Z the ratio is 1:1:1 for T1 vs. T2 vs. C and for subgroups X and Y the ratio is 1:1 for T1 vs. C and T2 vs. C.
 
 Randomization Strategy/ Subgroup  | R-I | R-II | R-III|
 ------------- | ------------- | -------------| -------------|
@@ -40,8 +44,6 @@ Subgroup Y | 2:1 ratio for T1 vs. C| 1:1 ratio for T1 vs. C | 1:1 ratio for T1 v
 Subgroup Z |1:1:1 ratio for T1 vs. T2 vs. C| 1:1:2 ratio for T1 vs. T2 vs. C| 1:1:1 ratio for T1 vs. T2 vs. C|
   
 Within the substudies, patients are randomized to the different arms with either complete randomization or block randomization. The block size depends on the randomization strategy: for **R-I** a block size of 3 was chosen for all three subgroups. The idea was to thereby allocate more subjects to the treatment arm in subgroups X and Y. For **R-II** a block size of 2 for subgroups X and Y was chosen and for subgroup Z a block size of 4. As result, overall more patients are randomized to the control arm. In **R-III** a block size of 2 was chosen for subgroups X and Y and a block size of 3 for subgroup Z to achieve an equal ratio within each subgroup. For simplicity the smallest block size that meets the desired ratio for each randomization strategy was chosen for the simulation.
-
-Figure 4.3 provides an overview of the considered randomization strategies and the implications for the different subgroups. The figure emphasizes that for subgroup Z in order to achieve a 1:1:1 ratio for T1 vs. T2 vs. C, within the substudies a ratio of 2:1 for T1 vs. C and T2 vs. C is employed. That this is possible has been stressed by Figure 4.2 which shows that for subgroup Z there is no difference between a trial with two substudies and a traditional multi-arm design.
 
 To generate the trial data, different total sample sizes are considered (n = 30, 75, 150, 300). The sample size per arm is influenced by the different randomization strategies introduced above. For example, for **R-I** the sample size per arm for a total sample size of 150 is 50 while for **R-II** the sample size per arm for a total sample size of 150 is, for example, 37:38:75 for T1 vs. T2 vs. C. The stopping criterion after which the analysis is conducted is that the total number of patients is enrolled in the trial.
 
@@ -89,6 +91,8 @@ $\Lambda_2$ = $0 * \mu_{T1} +$ $1 * \mu_{T2} - 1 * \mu_{C}$.
 ### Data Selection
 In the analysis, the impact of the composition of the control data is of interest and the above defined contrasts are calculated for the three different control data
 compositions. First, all data are considered for the analysis, depicted in Figure 4.4 A). That means that the full data set is regarded, e.g. regardless whether the patients were in the subgroup or arm of interest for the comparison they are included for the comparisons. Next, all control data are regarded, see Figure 4.4 B), which means that the control data of all patients are used for the analysis independent of the subgroup they were recruited from. For example, for a comparison of T1 vs. C, one would also include the control data of patients in subgroup Y who never had the chance of getting treated with T1. Finally, restricted data are taken into account, represented in Figure 4.4 C), which refers to the patients who had the chance of getting treated with the treatment of interest. For a comparison of T1 vs. C, one would only use the data of patients in subgroups X and Z who were randomized to either T1 or C.
+
+![ ](./Figures/DataSelection.png)
 
 
 
