@@ -1,6 +1,6 @@
 # **Design issues in multi-arm trials**
 
-This repository contains the main code and R functions to reproduce the results of the simulation study presented in my master thesis which has the title "Design issues in multi-arm trials". The master thesis can be read here: 
+This repository contains the main code and R functions to reproduce the results of the simulation study presented in my [master thesis](https://zenodo.org/records/10533916) which has the title "Design issues in multi-arm trials".  
 
 ## Abstract
 
