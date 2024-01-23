@@ -58,7 +58,9 @@ where $\mu^C_{j}$ is the response in the control arm and $\Delta^i_j$ the effect
 * **Case 1**: the treatment effects in the subgroups are the same: $\Delta_X^{T1}$ = $\Delta_Z^{T1}$ and $\Delta_Y^{T2}$ = $\Delta_Z^{T2}$,
 * **Case 2**: the treatment effects in the subgroups are different: $\Delta_X^{T1}$ $\neq$ $\Delta_Z^{T1}$ and $\Delta_Y^{T2}$  $\neq$ $\Delta_Z^{T2}$.
 
-For one prevalence setting approximately 15000 different simulation scenarios were considered. 10000 replicates of each scenario were generated to estimate the operating characteristics of interest. The empirical proportion of times when the null hypothesis is rejected provides us with an estimate of the type I error rate (when the null hypothesis is true) or the power (when the alternative hypothesis is true). In the considered trial design, the patients are randomized to different experimental treatment options and the hypotheses are being tested independently which does not require multiplicity correction [^1]. Since the hypotheses are being tested independently, no adjustment for the level-α-test for the multiple hypotheses testing was performed. The following table summarizes the considered simulation scenarios and parameters.
+In the considered trial design, the patients are randomized to different experimental treatment options and the hypotheses are being tested independently which does not require multiplicity correction [^1]. Since the hypotheses are being tested independently, no adjustment for the level-α-test for the multiple hypotheses testing was performed. 
+
+For one prevalence setting approximately 15000 different simulation scenarios were considered. 10000 replicates of each scenario were generated to estimate the operating characteristics of interest. The empirical proportion of times when the null hypothesis is rejected provides us with an estimate of the type I error rate (when the null hypothesis is true) or the power (when the alternative hypothesis is true). The following table summarizes the considered simulation scenarios and parameters. 
 
 Name  | Investigated values | Description
 ------------- | -------------| -------------
@@ -89,27 +91,23 @@ The sign of the weights must correspond to the direction in the hypothesis and t
 $\Lambda_2$ = $0 * \mu_{T1} +$ $1 * \mu_{T2} - 1 * \mu_{C}$.
 
 ### Data Selection
-In the analysis, the impact of the composition of the control data is of interest and the above defined contrasts are calculated for the three different control data
-compositions. First, all data are considered for the analysis, depicted in Figure 4.4 A). That means that the full data set is regarded, e.g. regardless whether the patients were in the subgroup or arm of interest for the comparison they are included for the comparisons. Next, all control data are regarded, see Figure 4.4 B), which means that the control data of all patients are used for the analysis independent of the subgroup they were recruited from. For example, for a comparison of T1 vs. C, one would also include the control data of patients in subgroup Y who never had the chance of getting treated with T1. Finally, restricted data are taken into account, represented in Figure 4.4 C), which refers to the patients who had the chance of getting treated with the treatment of interest. For a comparison of T1 vs. C, one would only use the data of patients in subgroups X and Z who were randomized to either T1 or C.
+In the analysis, the impact of the composition of the control data is of interest and the above defined contrasts are calculated for the three different control data compositions. First, all data are considered for the analysis, depicted in Figure A). That means that the full data set is regarded, e.g. regardless whether the patients were in the subgroup or arm of interest for the comparison they are included for the comparisons. Next, all control data are regarded, see Figure B), which means that the control data of all patients are used for the analysis independent of the subgroup they were recruited from. For example, for a comparison of T1 vs. C, one would also include the control data of patients in subgroup Y who never had the chance of getting treated with T1. Finally, restricted data are taken into account, represented in Figure C), which refers to the patients who had the chance of getting treated with the treatment of interest. For a comparison of T1 vs. C, one would only use the data of patients in subgroups X and Z who were randomized to either T1 or C.
 
 ![ ](./Figures/DataSelection.png)
 
 
 
-## Functions
+## R Functions
+The folder *functions* contains all R functions necessary to reproduce the results in the thesis and supplementary material:
 
-### Function for generating the data set
-The function for generating the data set includes the assignment to the three different subgroups X, Y and Z, the randomization to the three arms T1, T2 and C, the splitting of the data sets into all data, all control data and restricted and the adjusted and unadjusted analyses.
+* determineDataset.R: the function for generating the data set includes the assignment to the three different subgroups X, Y and Z, the randomization to the three arms T1, T2 and C, the splitting of the data sets into all data, all control data and restricted and the adjusted and unadjusted analyses.
 
-### Function for parallelization and calculating the operating characteristics
-In the second function the estimates and p-values over the iterations are collected and the operating characteristics such as power, bias and confidence intervals are calculated. Besides, the iterations are parallelized to accelerate the simulating process.
+* callSimulation.R: the estimates and p-values over the iterations are collected and the operating characteristics such as power, bias and confidence intervals are calculated. Besides, the iterations are parallelized to accelerate the simulating process.
 
-### Function  for iterating over the simulation parameters
-In the third function a grid is build which consists of all simulation parameters of interest. Then, for each row of the grid one iterates over the first two functions. In the end, the data are saved as csv file and one row in the csv file corresponds to one row in the grid, i.e. one simulation scenario.
+* runSimulation.R: a grid is build which consists of all simulation parameters of interest. Then, for each row of the grid one iterates over determineDataset.R and callSimulation.R. In the end, the data are saved as csv file and one row in the csv file corresponds to one row in the grid, i.e. one simulation scenario.
 
 ## Funding
-The work for this thesis was carried out at the Center for Medical Data Science of the Medical University of Vienna. This work was part of the EU-Pearl (EU
-Patient-cEntric clinicAl tRial pLatforms) project which has received funding from the Innovative Medicines Initiative (IMI) 2 Joint Untertaking under grant agreement No 853966. This Joint Untertaking received support from the European Union´s Horizon 2020 research and innovation program and EFPIA and Children´s Tumor Foundation, Global Alliance for TB Drug Development non-profit organization, Springworks Therapeutcs Inc. This thesis reflects the author‘s point of view. Neither IMI nor the European Union, EFPIA, or any Associated Partners are responsible for any use that may be made of the information contained herein.
+The work for this thesis was carried out at the Center for Medical Data Science of the Medical University of Vienna. This work was part of the EU-Pearl (EU Patient-cEntric clinicAl tRial pLatforms) project which has received funding from the Innovative Medicines Initiative (IMI) 2 Joint Untertaking under grant agreement No 853966. This Joint Untertaking received support from the European Union´s Horizon 2020 research and innovation program and EFPIA and Children´s Tumor Foundation, Global Alliance for TB Drug Development non-profit organization, Springworks Therapeutcs Inc. This thesis reflects the author‘s point of view. Neither IMI nor the European Union, EFPIA, or any Associated Partners are responsible for any use that may be made of the information contained herein.
 
 [^1]: . Howard, J. Brown, S. Todd, and W. Gregory. “Recommendations on multiple testing adjustment in multi-arm trials with a shared control group”. Statistical Methods in Medical Research, vol. 27, no. 5 (2018), pp. 1513–1530.
 [^2]: . Law and S. Emery. “Selective exclusion of treatment arms in multi-arm randomized clinical trials”. Statistics in Medicine, vol. 22, no. 1 (2003), pp. 19–30.
