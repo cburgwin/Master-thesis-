@@ -1,5 +1,3 @@
-rm(list=ls())
-
 ### Libraries
 library(parallel) # to detect number of cores
 library(foreach) # to parallelize simulation
