@@ -9,11 +9,10 @@ library(future.apply)
 library(parallel)
 library(emmeans)
 
-rm(list=ls())
-
 # use source function to use functions that are created in another R script
 source("callSimulation.R")
 
+# Function for running over the other two functions
 runSimulation <- function(t, # number of time periods
                           n, # number of patients for each time period
                           armsNumb_vec = 1:3, # number of arms
