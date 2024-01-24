@@ -3,8 +3,7 @@ library(stats) # library for normal distribution
 library(emmeans) # library for contrasts and lsmeans function
 library(dplyr) # library for filter function
 
-#### Function for simulation
-
+#### Function to generate dataset
 fnSimulation <- 
   function(
     t, # number of time periods
@@ -944,11 +943,10 @@ fnSimulation <-
     }
 }
 
-##################################################################
+##########################################################################################
 # Example to call the function for the following setting:
-# overall ratio of 1:1:2 with block randomization,  
-# random allocation to the different types of groups, so 
-# within the substudies a 1:1 ratio for treatment(s) versus control
+# overall ratio of 1:1:2 with block randomization, random allocation to the different 
+# types of groups, so within the substudies a 1:1 ratio for treatment(s) versus control
 
 data <- fnSimulation(t = 1,
                      n = 300,
