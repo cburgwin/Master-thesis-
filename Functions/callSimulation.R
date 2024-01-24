@@ -6,7 +6,6 @@ library(doParallel) # to parallelize simulation
 ### Use source function to use functions that are created in another R script
 source("determineDataset.R")
 
-
 #### Function for calling the other function
 callSimulation <-
   function(
@@ -573,11 +572,10 @@ callSimulation <-
     return(results_list)
 }
 
-########################################################################
+#######################################################################################################
 # Example for calling the function for the following setting:
-# An overall ratio of 1:1:2 with block randomization and random allocation
-# to the different types of groups, so within the substudies a 1:1 ratio
-# for treatment(s) versus control.
+# An overall ratio of 1:1:2 with block randomization and random allocation to the different types of 
+# groups, so within the substudies a 1:1 ratio for treatment(s) versus control.
                                   
 data <- callSimulation(t = 5,
                        n = 60,
