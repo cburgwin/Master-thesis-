@@ -35,7 +35,7 @@ For the remainder of this thesis the following abbreviations will be used to ref
 Table below):
 * **R-I**: for subgroups X and Y the ratio is 2:1 for T1 vs. C and T2 vs. C and for subgroup Z the ratio is 1:1:1 for T1 vs. T2 vs. C.
 * **R-II**: for subgroups X and Y a ratio of 1:1 within the substudies for T1 vs.C and T2 vs. C is assumed while for subgroup Z a ratio of 1:1:2 for T1 vs.T2 vs. C.
-* **R-III**: an equal ratio within each subgroup is assumed, meaning that forsubgroup Z the ratio is 1:1:1 for T1 vs. T2 vs. C and for subgroups X and Y the ratio is 1:1 for T1 vs. C and T2 vs. C.
+* **R-III**: an equal ratio within each subgroup is assumed, meaning that for subgroup Z the ratio is 1:1:1 for T1 vs. T2 vs. C and for subgroups X and Y the ratio is 1:1 for T1 vs. C and T2 vs. C.
 
 Randomization Strategy/ Subgroup  | R-I | R-II | R-III|
 ------------- | ------------- | -------------| -------------|
